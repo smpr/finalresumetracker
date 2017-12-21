@@ -7,7 +7,7 @@ class AppHome extends Component {
             async componentWillMount() {
                 try {
         
-                    const applications = await axios.get(`/api/applications`)
+                    const applications = await axios.get(`/api/resumes`)
                     this.setState({ applications: applications.data })
                     console.log(this.state.applications)
         
