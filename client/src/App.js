@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
+import NavBar from './components/Nav/NavBar'
+
 import AppHome from './components/Application/AppHome'
 import AppCreate from './components/Application/AppCreate'
 import AppShow from './components/Application/AppShow'
@@ -109,9 +111,10 @@ class App extends Component {
     )
     return (
 <MuiThemeProvider>
+<NavBar />
 <Router>
 
-
+    
 
 
   <Switch>
