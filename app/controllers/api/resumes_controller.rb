@@ -1,12 +1,13 @@
 class Api::ResumesController < ApplicationController
     before_action :authenticate_user!
     def index
-        @info = current_user.info
-         render json: @info
+        @resume = current_user.resumes
+         render json: @resume
       end
-def show
-    puts "Show"
-end
+      def show
+        @resume = Resume.find(params[:id])
+        render json: @resume
+    end
       def create
         @user = current_user
         @user.create_resume(resume_params)
