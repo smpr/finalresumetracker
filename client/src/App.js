@@ -1,6 +1,19 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import { clearAuthTokens, saveAuthTokens, setAxiosDefaults, userIsLoggedIn } from "./util/SessionHeaderUtil"
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+
+import AppHome from './components/Application/AppHome'
+import AppCreate from './components/Application/AppCreate'
+
+import HomePage from './components/HomePage/HomePage'
+
+import CompHome from './components/Company/CompHome'
+import CompCreate from './components/Company/CompCreate'
+
+import UserCreate from './components/User/UserCreate'
 
 class App extends Component {
   state = {
@@ -81,9 +94,43 @@ class App extends Component {
   }
 
   render() {
+    const SignUpLogInComponent = () => (
+      <HomePage
+        signUp={this.signUp}
+        signIn={this.signIn}
+        signOut={this.signOut}
+        loggedIn={this.state.signedIn} />
+    )
+    const CreateUserSignup = () => (
+      <UserCreate
+        signUp={this.signUp}
+      />
+    )
     return (
-<div>
-  </div>
+<MuiThemeProvider>
+<Router>
+
+
+
+
+  <Switch>
+
+    <Route exact path="/" render={SignUpLogInComponent} />
+
+    <Route exact path="/User/Create" render={CreateUserSignup} />
+
+    <Route exact path="/Company" component={CompHome} />
+    <Route exact path="/Company/Create" component={CompCreate} />
+
+    <Route exact path='/Application' component={AppHome} />
+    <Route exact path='/Application/Create' component={AppCreate} />
+
+    
+
+  </Switch>
+
+</Router>
+</MuiThemeProvider>
     );
   }
 }
