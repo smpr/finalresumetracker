@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import { Container, FormContainer, BodyContainer, Style, TextLabelStyle } from "../StyledComponents/DefaultStyle"
+import RaisedButton from 'material-ui/RaisedButton';
+import TextField from 'material-ui/TextField';
 class AppHome extends Component {
     state = {
         applications: []
@@ -19,7 +22,9 @@ class AppHome extends Component {
     }
     render() {
         return (
-            <div>
+            <BodyContainer>
+                <Container>
+                    <FormContainer>
                 <ul>
                     {this.state.applications.map((application, index) => {
                         return (
@@ -30,8 +35,9 @@ class AppHome extends Component {
                     })}
                     
                 </ul>
-                meh
-            </div>
+                </FormContainer>
+                </Container>
+            </BodyContainer>
         );
     }
 }
