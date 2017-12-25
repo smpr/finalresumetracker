@@ -8,10 +8,17 @@ class Api::ResumesController < ApplicationController
         @resume = Resume.find(params[:id])
         render json: @resume
     end
-      def create
-        @user = current_user
-        @user.create_resume(resume_params)
-        puts "succesful resume creation"
+    def create
+        @resume = Resume.new(resume_params)
+        
+        if @resume.save
+             render json: @resume
+        #     puts "create hit"
+         else
+             render json: @resume.errors
+             puts "create failed"
+         end
+        
        end
 
        private

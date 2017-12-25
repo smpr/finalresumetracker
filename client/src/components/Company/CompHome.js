@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 class CompHome extends Component {
     state = {
@@ -20,7 +21,17 @@ class CompHome extends Component {
     render() {
         return (
             <div>
-                Company Home
+                <ul>
+                    {this.state.companies.map((company, index) => {
+                        return (
+                            <div>
+                                <Link to={`/Company/${company.id}`}>{company.name}</Link>
+                            </div>
+                        )
+                    })}
+                    
+                </ul>
+                meh
             </div>
         );
     }
