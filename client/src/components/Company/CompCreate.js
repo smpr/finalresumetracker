@@ -57,7 +57,11 @@ class CompCreate extends Component {
     handleSubmit = async (event) => {
         event.preventDefault()
         await axios.post(`/api/companies/`, { company: this.state.company })
-        this.setState({ redirectToHome: true })
+        this.setState({ 
+            togglePage4: false,
+            togglePage6: true
+
+        })
 
     }
     render() {
@@ -242,7 +246,7 @@ class CompCreate extends Component {
 
     const moveAlong =
 
-        <Redirect to={`/Test`} />
+        <Redirect to={`/Company`} />
 
 
 

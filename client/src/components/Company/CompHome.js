@@ -24,7 +24,9 @@ class CompHome extends Component {
         return (
             <BodyContainer>
                 <Container>
+                    <Link to={`/Company/Create`}>Create a Company</Link>
                     <FormContainer>
+                
                 <ul>
                     {this.state.companies.map((company, index) => {
                         return (
