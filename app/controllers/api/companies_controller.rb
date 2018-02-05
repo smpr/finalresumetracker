@@ -24,16 +24,16 @@ class Api::CompaniesController < ApplicationController
         
        end
     def update
-      puts "info patch hit"
+      puts "company patch hit"
      @user = current_user
-      #   # @info = Info.find(params[:id])
-      @user.info.update(info_params)
-      #     render json: @info
+     @company = Company.find(params[:id])
+      @user.company.update(company_params)
+         render json: @company
 
         
       end
       def destroy
-        @info = Info.find(params[:id]).delete
+        @info = Company.find(params[:id]).delete
     
         render status: :ok
       end

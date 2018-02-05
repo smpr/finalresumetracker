@@ -16,6 +16,7 @@ import HomePage from './components/HomePage/HomePage'
 import CompHome from './components/Company/CompHome'
 import CompCreate from './components/Company/CompCreate'
 import CompShow from './components/Company/CompShow'
+import CompEdit from './components/Company/CompEdit'
 
 import UserCreate from './components/User/UserCreate'
 
@@ -126,6 +127,7 @@ class App extends Component {
 
     <Route exact path="/Company" component={CompHome} />
     <Route exact path="/Company/Create" component={CompCreate} />
+    <Route exact path="/Company/:compId/Edit" component={CompEdit} />
     <Route exact path="/Company/:compId" component={CompShow} />
 
     <Route exact path='/Application' component={AppHome} />

@@ -8,6 +8,9 @@ class CompShow extends Component {
     state = {
         company: {}
     }
+    filler = ()=> {
+
+    }
     async componentWillMount() {
         try {
             const compId = this.props.match.params.compId
@@ -46,8 +49,9 @@ class CompShow extends Component {
                         <div>
                             <b>Zip: </b>{this.state.company.zip}
                         </div>
-                        
+                        <RaisedButton href={`/Company/${this.props.match.params.compId}/Edit`} label="Edit" style={Style} />
                     </FormContainer>
+                    
                 </Container>
             </BodyContainer>
         );
