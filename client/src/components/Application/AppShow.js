@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import { BrowserRouter as Link, Redirect } from 'react-router-dom'
 import { Container, FormContainer, BodyContainer, Style, TextLabelStyle } from "../StyledComponents/DefaultStyle"
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
@@ -45,6 +46,7 @@ class AppShow extends Component {
                                 <b> Notes: </b> {this.state.applications.notes}
                             </li>
                         </ul>
+                        <RaisedButton href={`/Application/${this.props.match.params.appId}/Edit`} label="Edit" style={Style} />
                     </FormContainer>
                 </Container>
             </BodyContainer>

@@ -10,6 +10,7 @@ import NavBar from './components/Nav/NavBar'
 import AppHome from './components/Application/AppHome'
 import AppCreate from './components/Application/AppCreate'
 import AppShow from './components/Application/AppShow'
+import AppEdit from './components/Application/AppEdit'
 
 import HomePage from './components/HomePage/HomePage'
 
@@ -132,6 +133,7 @@ class App extends Component {
 
     <Route exact path='/Application' component={AppHome} />
     <Route exact path='/Application/Create' component={AppCreate} />
+    <Route exact path='/Application/:appId/Edit' component={AppEdit} />
     <Route exact path='/Application/:appId' component={AppShow} />
 
     
