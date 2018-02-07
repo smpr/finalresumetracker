@@ -68,7 +68,7 @@ class CompEdit extends Component {
                                 floatingLabelStyle={TextLabelStyle.floatingLabelStyle}
                                 floatingLabelFocusStyle={TextLabelStyle.floatingLabelFocusStyle}
                                 onChange={this.handleChange}
-                                name="Name"
+                                name="name"
                                 type="text"
 
 

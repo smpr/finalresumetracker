@@ -25,11 +25,11 @@ class Api::CompaniesController < ApplicationController
        
     def update
       puts "company patch hit"
-     @user = current_user
-     @company = Company.find(params[:id])
-      @user.company.update(company_params)
-         render json: @company
-
+  
+     #@company = Company.find(params[:id])
+      #@user.company.update(company_params)
+       #  render json: @company
+        Company.find(params[:id]).update(company_params)
         
       end
       def destroy
