@@ -12,17 +12,17 @@ class Api::CompaniesController < ApplicationController
         render json: @company
     end
     def create
-        @company = Company.new(company_params)
+        @Company = Company.new(company_params)
         
-        if @company.save
-             render json: @company
+        if @Company.save
+             render json: @Company
         #     puts "create hit"
          else
-             render json: @company.errors
+             render json: @Company.errors
              puts "create failed"
          end
-        
        end
+       
     def update
       puts "company patch hit"
      @user = current_user
@@ -33,7 +33,7 @@ class Api::CompaniesController < ApplicationController
         
       end
       def destroy
-        @info = Company.find(params[:id]).delete
+        Company.find(params[:id]).delete
     
         render status: :ok
       end

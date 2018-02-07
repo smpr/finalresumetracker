@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import { Redirect } from 'react-router-dom'
 import { Container, FormContainer, BodyContainer, Style, TextLabelStyle } from "../StyledComponents/DefaultStyle"
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
@@ -39,7 +40,9 @@ class CompEdit extends Component {
         this.setState({ company: res.data, redirectToCompany: true })
     }
     deleteStep = async () => {
-console.log("Delete Test")
+        const compId = this.props.match.params.compId
+        await axios.delete(`/api/companies/${compId}`)
+        this.setState({ redirectToCompany: true })
     }
     handleChange = (event) => {
         const attribute = event.target.name
@@ -48,6 +51,9 @@ console.log("Delete Test")
         this.setState({ company: clonedCompany })
     }
     render() {
+        if (this.state.redirectToCompany){
+            return <Redirect to={`/Company`} />
+        }
         return (
             <BodyContainer>
                 <Container>
