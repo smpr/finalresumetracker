@@ -20,7 +20,18 @@ class Api::ResumesController < ApplicationController
          end
         
        end
-
+       def update
+        puts "company patch hit"
+    
+   
+          Resume.find(params[:id]).update(resume_params)
+          
+        end
+        def destroy
+          Resume.find(params[:id]).delete
+      
+          render status: :ok
+        end
        private
       
        def resume_params

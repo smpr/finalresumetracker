@@ -13,7 +13,8 @@ class AppEdit extends Component {
             notes: "",
             req: '',
             title: ''
-        }
+        },
+        redirectToApplication: false
     }
     async componentWillMount() {
         try {
@@ -31,6 +32,20 @@ class AppEdit extends Component {
         const clonedApplication = { ...this.state.application }
         clonedApplication[attribute] = event.target.value
         this.setState({ application: clonedApplication })
+    }
+    editApp = async () => {
+        const appId = this.props.match.params.appId
+        const res = await axios.patch(`/api/resumes/${appId}`, {
+            company: this.state.application,
+
+
+        })
+        this.setState({ application: res.data, redirectToApplication: true })
+    }
+    deleteApp = async () => {
+        const appId = this.props.match.params.appId
+        await axios.delete(`/api/resumes/${appId}`)
+        this.setState({ redirectToApplication: true })
     }
     render() {
         return (
